@@ -21,7 +21,7 @@ install:
 # Run commands
 build_script:
   # Run the binary
-  - .\venompapa.exe
+  - ./venompapa
   
   # Run the Python script
   - python ven.py
