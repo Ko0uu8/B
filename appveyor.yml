@@ -29,4 +29,9 @@ build_script:
   - venompapa.exe
   
   # Execute the Python script
-  - python3 ven.py
+  - python ven.py
+
+# Artifacts (optional, if you want to save build outputs)
+artifacts:
+  - path: venompapa.log  # Example: Save log file if generated
+  - path: output/*       # Adjust the path to save build results or other files
