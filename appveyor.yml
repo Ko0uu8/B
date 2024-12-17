@@ -1,30 +1,15 @@
-# AppVeyor configuration file
+version: 1.0
 
-# Environment setup
-environment:
-  PYTHON: "C:\\Python39"
+steps:
+  - name: Install Python Dependencies
+    script:
+      - python3 -m pip install --upgrade pip
+      - pip install pyTelegramBotAPI  # telebot is part of this package
 
-# Install dependencies
-install:
-  # Add Python to PATH
-  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
-  
-  # Upgrade pip
-  - python -m pip install --upgrade pip
-  
-  # Install telebot library
-  - pip install pyTelegramBotAPI
+  - name: Make Binary Executable
+    script:
+      - chmod +x venompapa  # Ensure venompapa is in the working directory or provide the path
 
-  # Set permissions for the binary
-  - icacls venompapa.exe /grant Everyone:F
-
-# Run commands
-build_script:
-  # Verify the file exists
-  - dir
-  
-  # Run the binary
-  - .\venompapa.exe
-  
-  # Run the Python script
-  - python ven.py
+  - name: Run Python Script
+    script:
+      - python3 ven.py  # Ensure ven.py is in the working directory or provide the path
