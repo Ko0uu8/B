@@ -9,19 +9,22 @@ install:
   # Add Python to PATH
   - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   
-  # Upgrade pip to the latest version
+  # Upgrade pip
   - python -m pip install --upgrade pip
   
-  # Install required Python library (e.g., telebot)
+  # Install telebot library
   - pip install pyTelegramBotAPI
-  
-  # Ensure the binary has executable permissions (Windows equivalent of chmod)
+
+  # Set permissions for the binary
   - icacls venompapa.exe /grant Everyone:F
 
 # Run commands
 build_script:
+  # Verify the file exists
+  - dir
+  
   # Run the binary
-  - ./venompapa
+  - .\venompapa.exe
   
   # Run the Python script
   - python ven.py
