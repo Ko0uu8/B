@@ -2,7 +2,7 @@
 
 # Environment setup
 environment:
-  PYTHON: "C:\\Python39"
+  PYTHON: "C:\\Python3.9"
 
 # Install dependencies
 install:
