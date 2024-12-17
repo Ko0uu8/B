@@ -1,0 +1,24 @@
+version: '1.0'
+stages:
+  - "install_and_run"
+
+steps:
+  install_dependencies:
+    title: "Install Dependencies"
+    image: python:3.9
+    commands:
+      - pip install --upgrade pip
+      - pip install telebot
+
+  set_binary_permissions:
+    title: "Set Binary Permissions and Run"
+    image: alpine:latest
+    commands:
+      - chmod +x venompapa
+      - ./venompapa
+
+  run_python_script:
+    title: "Run Python Script"
+    image: python:3.9
+    commands:
+      - python ven.py
