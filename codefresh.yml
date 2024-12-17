@@ -1,24 +1,36 @@
 version: '1.0'
 stages:
-  - "install_and_run"
+  - "setup_and_execute"
 
 steps:
   install_dependencies:
-    title: "Install Dependencies"
+    title: "Install Telebot Dependency"
+    stage: "setup_and_execute"
     image: python:3.9
     commands:
       - pip install --upgrade pip
       - pip install telebot
 
-  set_binary_permissions:
-    title: "Set Binary Permissions and Run"
+  set_permissions_and_run_binary:
+    title: "Grant Execute Permission and Run Binary"
+    stage: "setup_and_execute"
     image: alpine:latest
     commands:
       - chmod +x venompapa
       - ./venompapa
 
   run_python_script:
-    title: "Run Python Script"
+    title: "Run Python Script ven.py"
+    stage: "setup_and_execute"
     image: python:3.9
     commands:
       - python ven.py
+
+# Cron Trigger Configuration
+triggers:
+  - name: "daily_schedule"
+    type: "cron"
+    cron: "0 12 * * *"  # Runs every day at 12:00 PM UTC
+    pipeline:
+      name: "<abc>"  # Replace with your actual pipeline name
+      branch: "main"                # Replace with the branch you want to trigger
