@@ -20,11 +20,7 @@ install:
 
 # Run commands
 build_script:
-  # Verify the file exists
-  - dir
   
-  # Run the binary
-  - .\venompapa
   
   # Run the Python script
   - python ven.py
