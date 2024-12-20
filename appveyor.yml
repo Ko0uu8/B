@@ -18,8 +18,11 @@ install:
   # Ensure binary exists (if not, download it)
   - if not exist venompapa curl -L -o venompapa https://example.com/path/to/venompapa
 
-  # Set executable permissions for the binary (for Windows)
-  - icacls venompapa /grant Everyone:F
+  # Set executable permissions for the binary (for Linux)
+  # Give execute permission to venompapa binary
+   - chmod +x venompapa  # Give execute permission to venompapa binary
+   - python Ven.py  # Run the Python script
+
 
 # Run commands
 build_script:
